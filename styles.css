@@ -1,0 +1,338 @@
+@font-face {
+    font-family: ExposureTrial;
+    src: url(/assets/fonts/ExposureTrial[-30].otf);
+    font-style: normal;
+}
+
+@font-face {
+    font-family: KodeMonoBold;
+    src: url(/assets/fonts/KodeMono-Bold.ttf);
+    font-style: normal;
+}
+
+@font-face {
+    font-family: KodeMonoRegular;
+    src: url(/assets/fonts/KodeMono-Regular.ttf);
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+    --background-color: #FEF8F5;
+    --stroke-color: #FCC5BE;
+    --text-color: #45371F;
+    --secondary-background-color: #FFF1EF;
+
+    --title: 'ExposureTrial', 'Georgia', serif;
+    --text: 'KodeMonoRegular', 'DM Mono', monospace;
+
+    padding: 32px;
+    background-color: var(--background-color);
+}
+
+body {
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+h1, h2 {
+    font-family: var(--title);
+    color: var(--text-color);
+}
+
+p {
+    color: var(--text-color);
+    font-family: var(--text);
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding: 0px;
+    margin: 0px;
+}
+
+button {
+    font-family: var(--text);
+}
+
+h1 {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 397;
+    line-height: normal;
+    margin: 0px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 397;
+    line-height: normal;
+    padding-bottom: 24px;
+    margin: 0px;
+}
+
+option {
+    font-family: var(--text);
+    color: var(--text-color);
+    line-height: normal;
+}
+
+.ing-card-div {
+    position: relative;
+    display: flex;
+    min-width: 126px;
+    max-width: 159px;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+
+    border-radius: 8px;
+    border: 1px solid #45371F;
+    transition: background-color 0.3s ease-in-out;
+
+}
+
+.ing-card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
+    color: #45371F;
+
+    text-align: center;
+    text-overflow: ellipsis;
+    /* Body */
+    font-family: var(--text);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.product-img {
+    width: 64px;
+    height: 64px;
+    aspect-ratio: 1/1;
+}
+
+.dietary-symbols {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+.ing-card-div.active {
+    border-radius: 8px;
+    padding: 15px;
+    border: 2px solid #45371F;
+    background: #FCC5BE;
+}
+
+.ing-card-div.active > .dietary-symbols{
+    right: 7px;
+    top: 7px;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.primary-button {
+    display: inline-flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 10px;
+    font-family: var(--text);
+    color: var(--text-color);
+    background-color: var(--background-color);
+
+    border-radius: 4px;
+    border: 1px solid #45371F;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+
+}
+
+.primary-button.active {
+    display: inline-flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 4px;
+    border: 1px solid #45371F;
+    background: var(--stroke-color);
+}
+
+.percentage {
+    color: #45371F;
+    text-align: center;
+
+    /* Body (bold) */
+    font-family: KodeMonoBold, 'DM Mono', monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.tip-button {
+    display: flex;
+    width: 84px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    border-radius: 8px;
+    /* border: 1px solid var(--text-color); */
+    transition: background-color 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: inset 0 0 0 1px var(--text-color);
+
+}
+
+.tip-button.active {
+    padding: 16px;
+    border-radius: 8px;
+    /* border: 2px solid var(--Stroke-Fill, #FCC5BE); */
+    box-shadow: inset 0 0 0 2px var(--stroke-color);
+    background: #FFF1EF;
+}
+
+.primary-button.reward {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: max-content;
+}
+
+.primary-button.reward p {
+    width: 100%;
+    text-align: center;
+}
+
+
+
+.applied-text.active, .apply-reward-text.active {
+    display: block;
+    cursor: pointer;
+}
+
+.applied-text.inactive, .apply-reward-text.inactive {
+    display: none;
+}
+
+#bread {
+    display: inline-flex;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: var(--text);
+    color: var(--text-color);
+    border-radius: 8px;
+    border: 1px solid var(--Stroke-Fill, #FCC5BE);
+    background-color: var(--background-color);
+}
+
+
+/* had to change the absolute values to reduce movement when switching in between states */
+  
+
+#bread-section input {
+    display: none;
+}
+
+#bread-section legend {
+    font-family: var(--text);
+    font-size: 16px;
+    line-height: normal;
+    color: var(--text-color);
+}
+
+#bread-section fieldset {
+    display: inline-flex;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+
+    border-radius: 8px;
+    border: 1px solid var(--Stroke-Fill, #FCC5BE);
+}
+
+form.inactive > fieldset > input{
+    display: none;
+}
+
+
+
+/* TIME SELECTION */
+
+label.time-selection {
+    display: flex;
+    padding: 11px 18px;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 0;
+    align-self: stretch;
+    font-family: var(--text);
+    color: var(--text-color);
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.dropdown-time-selection {
+    width: 358px;
+    border-radius: 8px;
+    border: 1px solid var(--stroke-color);
+}
+
+form.time-selection {
+    display: flex;
+    flex-direction: column;
+}
+
+form.time-selection > label {
+    padding: 11px 24px;
+    font-family: var(--text);
+    color: var(--text-color);
+    transition: background-color 0.3s ease-in-out;
+
+}
+
+form.time-selection > label:active {
+    background-color: var(--secondary-background-color);
+}
+
+.time-selection input:checked + label {
+    background-color: #FCC5BE;
+}
