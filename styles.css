@@ -26,6 +26,7 @@ html {
     box-sizing: border-box;
     --background-color: #FEF8F5;
     --stroke-color: #FCC5BE;
+    --darker-red: #a1483d;
     --text-color: #45371F;
     --secondary-background-color: #FFF1EF;
 
@@ -37,10 +38,32 @@ html {
 }
 
 body {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+body {
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+body {
     background-color: none;
     display: flex;
     flex-direction: column;
     gap: 32px;
+    min-height: 85vh;
+
 }
 
 h1, h2 {
@@ -88,6 +111,53 @@ option {
     line-height: normal;
 }
 
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+a {
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+a:visited {
+    color: var(--darker-red);
+}
+
+a:hover {
+    color: #000;
+}
+
+a:active {
+    color: var(--stroke-color);
+}
+
+.microinteractions-nav > ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.microinteractions-nav > ul > li {
+    font-family: var(--text);
+}
+
+
+.microinteraction-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    flex: 1;
+}
+
 .ing-card-div {
     position: relative;
     display: flex;
@@ -98,12 +168,17 @@ option {
     justify-content: center;
     align-items: center;
     gap: 8px;
-    flex: 1 0 0;
+    /* flex: 1 0 0;
+    height: 116px; */
 
     border-radius: 8px;
     border: 1px solid #45371F;
     transition: background-color 0.3s ease-in-out;
 
+}
+
+.ing-card-div:hover {
+    cursor: pointer;
 }
 
 .ing-card-text {

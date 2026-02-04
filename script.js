@@ -65,3 +65,20 @@ timeRadios.forEach(radio => {
     labelText.textContent = `Pickup Time: ${radio.value}`;
   });
 });
+
+
+
+document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        if (this.target === '_blank' || this.href.includes('#')) return;
+
+        e.preventDefault();
+        const url = this.href;
+
+        document.body.classList.add('fade-out');
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 400);
+    });
+});
