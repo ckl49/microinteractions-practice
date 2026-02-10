@@ -317,10 +317,12 @@ a:active {
 .applied-text.active, .apply-reward-text.active {
     display: block;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .applied-text.inactive, .apply-reward-text.inactive {
     display: none;
+    font-size: 14px;
 }
 
 #bread {
@@ -382,6 +384,12 @@ label.time-selection {
     font-family: var(--text);
     color: var(--text-color);
     transition: background-color 0.3s ease-in-out;
+
+    /* Body (bold) */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 
@@ -391,23 +399,236 @@ label.time-selection {
     border: 1px solid var(--stroke-color);
 }
 
-form.time-selection {
+.time-options {
     display: flex;
     flex-direction: column;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+        max-height 0.3s ease,
+        opacity 0.3s ease;
 }
 
-form.time-selection > label {
+
+.time-options > label {
     padding: 11px 24px;
     font-family: var(--text);
     color: var(--text-color);
     transition: background-color 0.3s ease-in-out;
-
+    
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 150% */
+    letter-spacing: 0.36px;
 }
 
-form.time-selection > label:active {
+.time-options > label:active {
     background-color: var(--secondary-background-color);
 }
 
-.time-selection input:checked + label {
+.time-options input:checked + label {
     background-color: #FCC5BE;
+}
+
+/* Closed by default */
+.time-options {
+    /* display: none; */
+    flex-direction: column;
+  }
+  
+  /* Open state */
+  .dropdown-time-selection.open .time-options {
+    display: flex;
+    max-height: 300px; /* must be large enough for all options */
+    opacity: 1;
+  }
+  
+  /* Optional: rotate icon when open */
+  .dropdown-time-selection.open .open-dropdown {
+    transform: rotate(180deg);
+  }
+  .open-dropdown {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* ONLY the dropdown trigger label */
+.dropdown-time-selection .time-selection {
+    background-color: none;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 7px;
+  }
+  
+  /* Selected + closed → pink */
+  .dropdown-time-selection.has-value:not(.open) > .time-selection {
+    background-color: #FFF1EF;
+    border-radius: 7px;
+
+  }
+  
+  /* Open → white again */
+  .dropdown-time-selection.open > .time-selection {
+    background-color: none;
+    border-radius: 7px;
+
+  }
+
+
+/* REWARDS CHECKOUT BUTTONS */
+
+.rewards-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.reward-icon-frame {
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 8px;
+
+    border-radius: 4px;
+    border: 2px solid #FCC5BE;
+    background: #FFD3D3;
+}
+
+.reward-checkout-button {
+    display: flex;
+    padding: 16px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+
+    border-radius: 8px;
+    border: 1px solid #FCC5BE;
+    width: 326px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.icon-text-reward {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+}
+
+.icon-and-text-reward {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+}
+
+.reward-text {
+    color: var(--text-color);
+    font-family: var(--text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.number-of-points {
+    color: var(--text-color);
+
+    /* Body */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.primary-button.reward {
+    color: var(--text-color);
+    font-family: var(--text);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.stacked-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.reward-checkout-button.active {
+    border-radius: 8px;
+    border: 1px solid #FCC5BE;
+    background-color: #FFF1EF;
+}
+
+.reward-checkout-button.inactive {
+    border-radius: 8px;
+    border: 1px solid #FCC5BE;
+    opacity: 0.5;
+}
+
+/* Default state */
+.reward-checkout-button .apply-reward-text {
+    display: block;
+  }
+  
+  .reward-checkout-button .applied-text {
+    display: none;
+  }
+  
+  /* Active card */
+  .reward-checkout-button.active .apply-reward-text {
+    display: none;
+  }
+  
+  .reward-checkout-button.active .applied-text {
+    display: block;
+  }
+  
+  /* Inactive cards */
+  .reward-checkout-button.inactive {
+    opacity: 0.5;
+  }
+
+  /* Default button state */
+.reward-checkout-button .primary-button.reward {
+    background-color: transparent;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Active card button */
+  .reward-checkout-button.active .primary-button.reward {
+    background-color: #FCC5BE;
+  }
+  
+  /* Optional inactive styling */
+  .reward-checkout-button.inactive .primary-button.reward {
+    background-color: transparent;
+    opacity: 0.6;
+  }
+
+@media (max-width: 600px) {
+    p, a, li {
+        text-align: center;
+    }
+
+    footer {
+        padding-top: 64px;
+    }
+
+    .microinteractions-nav > ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
+
 }

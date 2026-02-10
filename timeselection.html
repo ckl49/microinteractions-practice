@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Selection Dropdown Microinteraction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="microinteraction-body">
+        <h1>Time Selection Dropdown</h1>
+        <p>This is the microinteraction for the time selection dropdown on our checkout page.</p>
+        <div class="dropdown-time-selection">
+            <label for="time-selection" class="time-selection">
+                <span class="time-label-text">Schedule Pickup Time</span> 
+                <svg class="open-dropdown" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#FCC5BE"/>
+                <path d="M8.8 10.7L11.3172 13.4109C11.7128 13.8369 12.3872 13.8369 12.7828 13.4109L15.3 10.7M2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12Z" stroke="#45371F" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </label>
+            <form action="" class="time-options" id="time-options">
+                <input type="radio" id="1100" name="pickup-time" value="11:00AM" hidden>
+                <label for="1100">11:00AM</label>
+
+                <input type="radio" id="1115" name="pickup-time" value="11:15AM" hidden>
+                <label for="1115">11:15AM</label>
+
+                <input type="radio" id="1130" name="pickup-time" value="11:30AM" hidden>
+                <label for="1130">11:30AM</label>
+
+                <input type="radio" id="1145" name="pickup-time" value="11:45AM" hidden>
+                <label for="1145">11:45AM</label>
+
+                <input type="radio" id="1200" name="pickup-time" value="12:00PM" hidden>
+                <label for="1200">12:00PM</label>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Check out our other microinteractions!</p>
+        <nav class="microinteractions-nav">
+            <ul>
+                <li><a href="/button.html">Primary Button</a></li>
+                <li><a href="/applyreward.html">Applying Rewards</a></li>
+                <li><a href="/timeselection.html">Time Dropdown</a></li>
+                <li><a href="/ing-card.html">Ingredient Card</a></li>
+                <li><a href="/tip-button.html">Tip Button</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

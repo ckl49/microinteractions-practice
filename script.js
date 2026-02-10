@@ -34,39 +34,53 @@ for (let button of tipButton) {
     });
 }
 
-const applyRewardButton = document.querySelector(".primary-button.reward");
+const rewardCards = document.querySelectorAll(".reward-checkout-button");
 
-const rewardText = applyRewardButton.querySelector(".apply-reward-text");
-const appliedRewardText = applyRewardButton.querySelector(".applied-text");
+rewardCards.forEach(card => {
+  const button = card.querySelector(".primary-button.reward");
 
-applyRewardButton.addEventListener("click", () => {
-    if (applyRewardButton.classList.contains("active")) {
-        rewardText.classList.remove("active");
-        rewardText.classList.add("inactive");
+  button.addEventListener("click", () => {
+    const isActive = card.classList.contains("active");
 
-        appliedRewardText.classList.remove("inactive");
-        appliedRewardText.classList.add("active");
-        return;
-    } else {
-        rewardText.classList.remove("inactive");
-        rewardText.classList.add("active");
+    // Reset all cards
+    rewardCards.forEach(c => {
+      c.classList.remove("active", "inactive");
+    });
 
-        appliedRewardText.classList.remove("active");
-        appliedRewardText.classList.add("inactive");
+    // If clicked card was NOT active, activate it and deactivate others
+    if (!isActive) {
+      card.classList.add("active");
+
+      rewardCards.forEach(c => {
+        if (c !== card) {
+          c.classList.add("inactive");
+        }
+      });
     }
-});
-
-
-const timeRadios = document.querySelectorAll('[name="pickup-time"]');
-const labelText = document.querySelector(".time-label-text");
-
-timeRadios.forEach(radio => {
-  radio.addEventListener("change", () => {
-    labelText.textContent = `Pickup Time: ${radio.value}`;
   });
 });
 
 
+/// TIME SELECTION
+const dropdown = document.querySelector(".dropdown-time-selection");
+const labelText = document.querySelector(".time-label-text");
+const timeRadios = document.querySelectorAll('input[name="pickup-time"]');
+const trigger = document.querySelector(".time-selection");
+
+// Toggle open/close
+trigger.addEventListener("click", (e) => {
+  e.preventDefault();
+  dropdown.classList.toggle("open");
+});
+
+// Update label + close on selection
+timeRadios.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    labelText.textContent = radio.value;
+    dropdown.classList.add("has-value"); // NEW
+    dropdown.classList.remove("open");
+  });
+});
 
 document.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function (e) {
@@ -82,3 +96,5 @@ document.querySelectorAll('a').forEach(link => {
         }, 400);
     });
 });
+
+
